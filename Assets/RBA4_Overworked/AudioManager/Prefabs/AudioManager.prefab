@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4282597385068132383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6243547158067760301}
+  - component: {fileID: 3646032456394590527}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6243547158067760301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282597385068132383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9851618, y: -1.0811366, z: -0.045759965}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3646032456394590527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282597385068132383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23f603df4914444b865b2bd8938541a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Ring
+    clip: {fileID: 8300000, guid: ecc3554eef2c27f439275d4e0e89491e, type: 3}
+    priority: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: PhoneConvo
+    clip: {fileID: 8300000, guid: 0ac2e10c3affdff4fa87f32d828a2e2d, type: 3}
+    priority: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: PhoneGet
+    clip: {fileID: 8300000, guid: 1d728218a7d7a2345bde229762884860, type: 3}
+    priority: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Drop
+    clip: {fileID: 8300000, guid: 392671f90374aca4c96e944c98f47bcb, type: 3}
+    priority: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: PaperPlace
+    clip: {fileID: 8300000, guid: 31ab4f7c0ebba824b86b6e7e7845edba, type: 3}
+    priority: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Fire
+    clip: {fileID: 8300000, guid: f8d97962fa72f584383a736fe4d1efa4, type: 3}
+    priority: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Extinguisher
+    clip: {fileID: 8300000, guid: c1fa2cee1412bb94fa4a7f9683f92d52, type: 3}
+    priority: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Extinguishing
+    clip: {fileID: 8300000, guid: 84c27dec135ef8844b6238098e3b558e, type: 3}
+    priority: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
