@@ -6306,7 +6306,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHiding: 0
+  isOnFriendList: 0
   canHide: 1
+  hideObject: {fileID: 0}
   FriendsRescued: 0
   FriendsCount: 0
   friendtracker: {fileID: 1691237023}
@@ -6646,8 +6648,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926321481}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.039222695, y: -0.6784781, z: 0.03632144, w: 0.73267305}
-  m_LocalPosition: {x: 13, y: 2.4, z: -23.5}
+  m_LocalRotation: {x: 0.16626017, y: -0.6266084, z: 0.13917285, w: 0.7485656}
+  m_LocalPosition: {x: 15.75, y: 3, z: -10.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
