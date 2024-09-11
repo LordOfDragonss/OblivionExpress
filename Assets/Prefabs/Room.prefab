@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 13949946084233697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.2, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0.2, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -294,17 +294,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ed989812d930a4387b385b965a4ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTransform: {fileID: 0}
   obstacles:
   - {fileID: 7551263872532946761, guid: dd8054b6de4a593438563ea2da362e54, type: 3}
   - {fileID: 972376728393835797, guid: 59befd74b1481ac40baf4a21d675992d, type: 3}
   - {fileID: 2864291434714187720, guid: 469323379deb0174f9c7e49258ad322f, type: 3}
   - {fileID: 5249450076333347683, guid: e0fc1215c720d4e47b0831d7e010532e, type: 3}
+  zoom: {fileID: 8073524066876971744}
   obstaclePositions:
   - {fileID: 5377949333501649516}
   - {fileID: 7894351684380223896}
   - {fileID: 6941711499222613487}
   - {fileID: 5946612568950703141}
   potentialVictims:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

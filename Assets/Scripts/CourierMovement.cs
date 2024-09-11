@@ -11,6 +11,7 @@ public class CourierMovement : MonoBehaviour
     public ExitButton exitButton;
     public List<GameObject> Locations;
     [SerializeField] int Locationindex;
+    public RandomizeRoom[] rooms;
     [SerializeField] CinemachineVirtualCamera followCam;
     [SerializeField] CinemachineVirtualCamera murderCam;
     public float Speed;
@@ -34,6 +35,7 @@ public class CourierMovement : MonoBehaviour
         Locationindex = 0;
         cyclestarted = false;
         OgSpeed = Speed;
+        rooms = FindObjectsOfType<RandomizeRoom>();
         AudioManager.PlayCall("ShadowOfDeath");
     }
 
@@ -82,6 +84,10 @@ public class CourierMovement : MonoBehaviour
             transform.position = Locations[Locationindex].transform.position;
             cycleended = false;
             StartGame();
+            foreach(RandomizeRoom room in rooms)
+            {
+                room.Randomize();
+            }
         }
     }
 

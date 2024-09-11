@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CameraHandler : MonoBehaviour
@@ -11,7 +12,7 @@ public class CameraHandler : MonoBehaviour
     public LayerMask FollowMask;
     public LayerMask HideMask;
     public LayerMask RoomMask;
-    public CinemachineVirtualCamera[] cameras;
+    public List<CinemachineVirtualCamera> cameras = new List<CinemachineVirtualCamera>();
     public FriendScene friendScene;
     void Start()
     {
@@ -21,7 +22,8 @@ public class CameraHandler : MonoBehaviour
 
     public void UpdateCameras()
     {
-        cameras = FindObjectsOfType<CinemachineVirtualCamera>();
+        cameras.Clear();
+        cameras = FindObjectsOfType<CinemachineVirtualCamera>(true).ToList();
         foreach (var cam in cameras)
         {
             if (cam != mainCam)
@@ -45,7 +47,7 @@ public class CameraHandler : MonoBehaviour
 
     public void SwitchToCamera(CinemachineVirtualCamera CamToSwap)
     {
-        if(CamToSwap == mainCam)
+        if (CamToSwap == mainCam)
         {
             mainCamera.cullingMask = MainMask;
         }
@@ -58,7 +60,8 @@ public class CameraHandler : MonoBehaviour
             }
             else
             {
-                cam.enabled = false;
+                if (cam != null)
+                    cam.enabled = false;
             }
 
         }

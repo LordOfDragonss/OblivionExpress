@@ -10,8 +10,9 @@ public class Friend : MonoBehaviour
     public GameObject MapPosition;
     [SerializeField] Transform[] OriginalPositions;
     [SerializeField] Outline outline;
+    public RandomizeRoom room;
     public HideObject hideObject;
-    bool beenRescued;
+    public bool beenRescued;
 
     private void Awake()
     {
@@ -26,6 +27,8 @@ public class Friend : MonoBehaviour
             player.AddFriend();
             AudioManager.PlayCall("ping");
             beenRescued = true;
+            room.friendActive = false;
+            room.dontRandomize = false;
         }
     }
 

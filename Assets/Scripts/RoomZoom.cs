@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class RoomZoom : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera RoomCam;
+    public CinemachineVirtualCamera RoomCam;
     [SerializeField] CameraHandler cameraHandler;
     [SerializeField] GameObject PlayerPosition;
     private Player player;

@@ -71,7 +71,6 @@ public class FriendScene : MonoBehaviour
             player.Hide(player.hideObject);
         }
         text.enabled = false;
-        CameraHandler.UpdateCameras();
         if (FirstTime)
         {
             FirstTime = false;
