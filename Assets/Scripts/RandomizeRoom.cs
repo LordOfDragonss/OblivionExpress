@@ -67,7 +67,9 @@ public class RandomizeRoom : MonoBehaviour
             {
                 if (friend.gameObject == victimGameObject)
                 {
-                    potentialVictims[randomVictim].GetComponent<Friend>().ResetLimbs();
+                    Friend friendvict = potentialVictims[randomVictim].GetComponent<Friend>();
+                    friendvict.ResetLimbs();
+                    friendvict.hideObject = obstacle;
                     friendActive = true;
                     break;
                 }

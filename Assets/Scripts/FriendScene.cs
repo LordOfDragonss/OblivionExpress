@@ -12,10 +12,11 @@ public class FriendScene : MonoBehaviour
     public Friend[] Friends;
     public CinemachineVirtualCamera cam;
     public CameraHandler CameraHandler;
+    public GameObject flbutton;
     public TextMeshProUGUI text;
     public TextMeshProUGUI ExitButtonText;
     public ExitButton exitButton;
-    bool firsttime;
+    public bool FirstTime;
 
     private void Awake()
     {
@@ -25,17 +26,26 @@ public class FriendScene : MonoBehaviour
         {
             r.friendScene = this;
         }
-        firsttime = true;
+        FirstTime = true;
+        player.FriendsCount = Friends.Length;
     }
 
-    private void Start()
+    private void Update()
     {
-        StartScene();
+        if (!player.canHide)
+        {
+            flbutton.SetActive(false);
+        }
+        if (player.canHide)
+        {
+            flbutton.SetActive(true);
+        }
     }
 
     public void StartScene()
     {
         player.canHide = false;
+        player.isOnFriendList = true;
         CameraHandler.SwitchToCamera(cam);
         text.enabled = true;
         ExitButtonText.text = "Exit Screen";
@@ -49,13 +59,22 @@ public class FriendScene : MonoBehaviour
     public void EndScene()
     {
         player.canHide = true;
+        player.isOnFriendList = false;
         ExitButtonText.text = "Exit Room";
         exitButton.HideButton();
+        foreach (Friend friend in Friends)
+        {
+            friend.BackToHidingSpot();
+        }
+        if (player.isHiding)
+        {
+            player.Hide(player.hideObject);
+        }
         text.enabled = false;
         CameraHandler.UpdateCameras();
-        if (firsttime)
+        if (FirstTime)
         {
-            firsttime = false;
+            FirstTime = false;
             conductor.murderStart = true;
             foreach (var room in roomrandomizers)
             {

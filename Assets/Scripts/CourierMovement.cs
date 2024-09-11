@@ -1,8 +1,9 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
+using UnityEngine.PlayerLoop;
 
 public class CourierMovement : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class CourierMovement : MonoBehaviour
     [SerializeField] float MurderSpeed;
     public float rotationSpeed;
     [SerializeField] bool cyclestarted;
-    [SerializeField] bool cycleended;
+    bool cycleended;
+    public UpdateTime timerUpdater;
     [SerializeField] public float timer;
     public bool CountdownStarted;
     public float TimeTillCourier;
@@ -63,22 +65,22 @@ public class CourierMovement : MonoBehaviour
         }
         if (CountdownStarted)
             timer += Time.deltaTime;
-        if (timer >= TimeTillCourier && !cyclestarted)
+        if (timer >= TimeTillCourier)
         {
-            cyclestarted = true;
             CountdownStarted = false;
+            AudioManager.PlayCall("Horns");
             StartCycle();
         }
         if (cyclestarted)
         {
-            AudioManager.PlayCall("Horns");
             MoveTroughCycle();
-            cyclestarted = false;
         }
         if (cycleended)
         {
+            timerUpdater.timer = TimeTillCourier;
             Locationindex = 0;
             transform.position = Locations[Locationindex].transform.position;
+            cycleended = false;
             StartGame();
         }
     }
@@ -93,6 +95,7 @@ public class CourierMovement : MonoBehaviour
 
     public void StartCycle()
     {
+        cyclestarted = true;
         Speed = OgSpeed;
         player.canHide = false;
         exitButton.HideButton();
@@ -106,11 +109,13 @@ public class CourierMovement : MonoBehaviour
         if (Locationindex >= Locations.Count)
         {
             cycleended = true;
+            return;
         }
         transform.position = Vector3.MoveTowards(transform.position, Locations[Locationindex].transform.position, Speed * Time.deltaTime);
         transform.rotation = Quaternion.Slerp(transform.rotation, Locations[Locationindex].transform.rotation, rotationSpeed * Time.deltaTime);
         if (transform.position == Locations[Locationindex].transform.position && transform.rotation == Locations[Locationindex].transform.rotation)
         {
+            cyclestarted = false;
             Locationindex++;
         }
 

@@ -7,8 +7,11 @@ public class Friend : MonoBehaviour
 {
     public Player player;
     public GameObject[] limbs;
+    public GameObject MapPosition;
     [SerializeField] Transform[] OriginalPositions;
     [SerializeField] Outline outline;
+    public HideObject hideObject;
+    bool beenRescued;
 
     private void Awake()
     {
@@ -18,9 +21,21 @@ public class Friend : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (player.canHide)
+        if (player.canHide && !beenRescued)
         {
             player.AddFriend();
+            AudioManager.PlayCall("ping");
+            beenRescued = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (beenRescued)
+        {
+            GoBackToFriendScene();
+            outline.OutlineColor = Color.yellow;
+            outline.OutlineMode = Outline.Mode.OutlineVisible;
         }
     }
 
@@ -39,8 +54,15 @@ public class Friend : MonoBehaviour
     {
         foreach (var item in limbs)
         {
-            item.transform.position = Vector3.zero;
-            item.transform.rotation = Quaternion.identity;
+            item.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        }
+    }
+    public void BackToHidingSpot()
+    {
+        if(hideObject != null)
+        {
+            transform.position = hideObject.HidingSpot.transform.position;
+            transform.rotation = hideObject.HidingSpot.transform.rotation;
         }
     }
 
@@ -48,13 +70,14 @@ public class Friend : MonoBehaviour
     {
         for (int i = 0; i < limbs.Length; i++)
         {
-
             OriginalPositions[i] = limbs[i].transform;
         }
     }
 
     public void GoBackToFriendScene()
     {
+        transform.position = MapPosition.transform.position;
+        transform.rotation = MapPosition.transform.rotation;
         for (int i = 0; i < limbs.Length; i++)
         {
             limbs[i].transform.position = OriginalPositions[i].position;

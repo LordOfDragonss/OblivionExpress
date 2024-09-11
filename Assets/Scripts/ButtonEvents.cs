@@ -14,4 +14,9 @@ public class ButtonEvents : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 }

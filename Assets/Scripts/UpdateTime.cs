@@ -6,7 +6,7 @@ using UnityEngine;
 public class UpdateTime : MonoBehaviour
 {
     public TextMeshProUGUI time;
-    private float timer;
+    [SerializeField] public float timer;
     public CourierMovement couriermovement;
     // Start is called before the first frame update
     void Start()
