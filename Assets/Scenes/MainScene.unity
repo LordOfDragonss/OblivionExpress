@@ -1586,6 +1586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1828632966}
   exitButton: {fileID: 104116550}
+  speedButton: {fileID: 1511543217}
   Locations:
   - {fileID: 1403774155}
   - {fileID: 648884617}

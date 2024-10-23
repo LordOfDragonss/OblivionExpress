@@ -8,6 +8,17 @@ public class SpeedUpButton : Selectable, IPointerDownHandler, IPointerUpHandler
 {
     public float speedUpSpeed;
 
+    public void HideButton()
+    {
+        Time.timeScale = 1;
+        gameObject.SetActive(false);
+    }
+
+    public void DisplayButton()
+    {
+        gameObject.SetActive(true);
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         Time.timeScale = speedUpSpeed;

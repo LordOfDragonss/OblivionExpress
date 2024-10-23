@@ -9,6 +9,7 @@ public class CourierMovement : MonoBehaviour
 {
     public Player player;
     public ExitButton exitButton;
+    public SpeedUpButton speedButton;
     public List<GameObject> Locations;
     [SerializeField] int Locationindex;
     public RandomizeRoom[] rooms;
@@ -36,6 +37,7 @@ public class CourierMovement : MonoBehaviour
         Locationindex = 0;
         cyclestarted = false;
         OgSpeed = Speed;
+        speedButton.HideButton();
         rooms = FindObjectsOfType<RandomizeRoom>();
         AudioManager.PlayCall("ShadowOfDeath");
     }
@@ -84,6 +86,7 @@ public class CourierMovement : MonoBehaviour
             Locationindex = 0;
             transform.position = Locations[Locationindex].transform.position;
             cycleended = false;
+            speedButton.HideButton();
             StartGame();
             foreach(RandomizeRoom room in rooms)
             {
@@ -106,6 +109,7 @@ public class CourierMovement : MonoBehaviour
         Speed = OgSpeed;
         player.canHide = false;
         exitButton.HideButton();
+        speedButton.DisplayButton();
         CameraHandler.SwitchToCamera(followCam);
         CameraHandler.RemoveDoorWall();
     }
