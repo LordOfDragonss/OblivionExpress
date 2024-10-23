@@ -14,6 +14,7 @@ public class CourierMovement : MonoBehaviour
     public RandomizeRoom[] rooms;
     [SerializeField] CinemachineVirtualCamera followCam;
     [SerializeField] CinemachineVirtualCamera murderCam;
+    public float rotationalOffset;
     public float Speed;
     float OgSpeed;
     [SerializeField] float MurderSpeed;
@@ -119,9 +120,14 @@ public class CourierMovement : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, Locations[Locationindex].transform.position, Speed * Time.deltaTime);
         transform.rotation = Quaternion.Slerp(transform.rotation, Locations[Locationindex].transform.rotation, rotationSpeed * Time.deltaTime);
-        if (transform.position == Locations[Locationindex].transform.position && transform.rotation == Locations[Locationindex].transform.rotation)
+        float angleDifference = Quaternion.Angle(transform.rotation, Locations[Locationindex].transform.rotation);
+        bool rotationReached = angleDifference <= rotationalOffset;
+        if (transform.position == Locations[Locationindex].transform.position && rotationReached)
         {
-            cyclestarted = false;
+            if (cyclestarted)
+            {
+                cyclestarted = false;
+            }
             Locationindex++;
         }
 
