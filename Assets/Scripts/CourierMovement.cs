@@ -73,8 +73,9 @@ public class CourierMovement : MonoBehaviour
         if (timer >= TimeTillCourier)
         {
             CountdownStarted = false;
-            AudioManager.PlayCall("Horns");
             StartCycle();
+            timer = 0.1f;
+            AudioManager.PlayCall("Horns");
         }
         if (cyclestarted)
         {
@@ -85,7 +86,9 @@ public class CourierMovement : MonoBehaviour
             timerUpdater.timer = TimeTillCourier;
             Locationindex = 0;
             transform.position = Locations[Locationindex].transform.position;
+            cyclestarted = false;
             cycleended = false;
+            AudioManager.StopCall("Horns");
             speedButton.HideButton();
             StartGame();
             foreach(RandomizeRoom room in rooms)
@@ -128,10 +131,10 @@ public class CourierMovement : MonoBehaviour
         bool rotationReached = angleDifference <= rotationalOffset;
         if (transform.position == Locations[Locationindex].transform.position && rotationReached)
         {
-            if (cyclestarted)
-            {
-                cyclestarted = false;
-            }
+            //if (cyclestarted)
+            //{
+            //    cyclestarted = false;
+            //}
             Locationindex++;
         }
 

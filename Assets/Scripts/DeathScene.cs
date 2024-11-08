@@ -10,6 +10,7 @@ public class DeathScene : MonoBehaviour
     [SerializeField] float timer;
     public float CutsceneTime;
     public bool SceneStarted;
+    public SpeedUpButton SpeedUpbutton;
     private void Start()
     {
         foreach (GameObject gO in Scene)
@@ -33,6 +34,7 @@ public class DeathScene : MonoBehaviour
 
     public void StartScene()
     {
+        SpeedUpbutton.HideButton();
         timer = 0;
         SceneStarted = true;
         foreach(AudioSource clip in audioClips)
