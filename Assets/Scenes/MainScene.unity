@@ -1603,8 +1603,8 @@ MonoBehaviour:
   - {fileID: 1525667213}
   - {fileID: 928650447}
   - {fileID: 809667655}
-  - {fileID: 725655789}
   - {fileID: 1095086970}
+  - {fileID: 725655789}
   - {fileID: 944015969}
   Locationindex: 0
   rooms: []
@@ -1644,6 +1644,7 @@ MonoBehaviour:
   timer: 0
   CutsceneTime: 2
   SceneStarted: 0
+  SpeedUpbutton: {fileID: 1511543217}
 --- !u!1001 &436924234
 PrefabInstance:
   m_ObjectHideFlags: 0
