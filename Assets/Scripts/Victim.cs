@@ -7,6 +7,7 @@ public class Victim : MonoBehaviour
     public SpriteRenderer[] sprites;
     [SerializeField] bool Dissapearing;
     public bool HasRandomAppearance;
+    public bool ObliviateSoundCalled;
     private void Start()
     {
         Dissapearing = false;
@@ -24,7 +25,11 @@ public class Victim : MonoBehaviour
                 Color color = sprite.color;
                 color.a -= 0.3f * Time.deltaTime;
                 if(color.a < 0f) color.a = 0f;
-                if(color.a < 0.6f) if (!Dissapearing) AudioManager.PlayCall("Obliviate");
+                if(color.a <= 0.6f && !ObliviateSoundCalled)
+                {
+                    AudioManager.PlayCall("Obliviate");
+                    ObliviateSoundCalled = true;
+                } 
                 sprite.color = color;
             }
         }
