@@ -77,6 +77,11 @@ public class CourierMovement : MonoBehaviour
             timer = 0.1f;
             AudioManager.PlayCall("Horns");
         }
+        if(timer >= 15)
+        {
+            AudioManager.GetSoundCall("TrainMusic").source.pitch = 2;
+            AudioManager.PlayCall("ClockTicking");
+        }
         if (cyclestarted)
         {
             MoveTroughCycle();
@@ -102,6 +107,8 @@ public class CourierMovement : MonoBehaviour
     {
         timer = 0;
         CameraHandler.SwitchToCamera(CameraHandler.mainCam);
+        AudioManager.GetSoundCall("TrainMusic").source.pitch = 1f;
+        AudioManager.PlayCall("TrainMusic");
         CountdownStarted = true;
         player.canHide = true;
     }
@@ -115,6 +122,10 @@ public class CourierMovement : MonoBehaviour
         speedButton.DisplayButton();
         CameraHandler.SwitchToCamera(followCam);
         CameraHandler.RemoveDoorWall();
+        AudioManager.StopCall("TrainMusic");
+        AudioManager.StopCall("ClockTicking");
+        AudioManager.GetSoundCall("TrainMusic").source.pitch = -1f;
+        AudioManager.PlayCall("TrainMusic");
     }
 
     public void MoveTroughCycle()

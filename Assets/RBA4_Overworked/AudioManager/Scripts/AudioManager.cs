@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public static Action<string> StopCall;
     public static Action<string> PauseCall;
     public static Action<string> UnPauseCall;
+    public static Func<string, Sound> GetSoundCall;
 
     private void Start()
     {
@@ -32,6 +33,17 @@ public class AudioManager : MonoBehaviour
         StopCall += Stop;
         PauseCall += Pause;
         UnPauseCall += UnPause;
+        GetSoundCall += GetSound;
+
+    }
+
+    public Sound GetSound(string name)
+    {
+        foreach (Sound s in sounds) { 
+        Sound sound = GetSoundByName(name);
+            if (sound != null) return sound;
+        }
+        return null;
     }
 
     public void Play(string name)

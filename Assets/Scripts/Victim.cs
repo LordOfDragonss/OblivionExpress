@@ -24,6 +24,7 @@ public class Victim : MonoBehaviour
                 Color color = sprite.color;
                 color.a -= 0.3f * Time.deltaTime;
                 if(color.a < 0f) color.a = 0f;
+                if(color.a < 0.6f) if (!Dissapearing) AudioManager.PlayCall("Obliviate");
                 sprite.color = color;
             }
         }
