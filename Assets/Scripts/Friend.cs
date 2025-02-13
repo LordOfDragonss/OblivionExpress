@@ -8,6 +8,7 @@ public class Friend : MonoBehaviour
     public Player player;
     public GameObject[] limbs;
     public GameObject MapPosition;
+    public FriendInfo friendinfo;
     [SerializeField] Transform[] OriginalPositions;
     [SerializeField] Outline outline;
     public RandomizeRoom room;

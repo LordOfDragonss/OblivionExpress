@@ -17,9 +17,18 @@ public class FriendScene : MonoBehaviour
     public TextMeshProUGUI ExitButtonText;
     public ExitButton exitButton;
     public bool FirstTime;
+    private static FriendScene instance;
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(instance.gameObject); // Destroy the old persistent instance
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
         text.enabled = false;
         roomrandomizers = FindObjectsOfType<RandomizeRoom>();
         foreach (RandomizeRoom r in roomrandomizers)

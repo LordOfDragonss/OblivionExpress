@@ -41,6 +41,14 @@ public class Victim : MonoBehaviour
         {
             GiveSpriteRandomColor(sprite);
         }
+        if (GetComponent<Friend>() != null) {
+           FriendInfo info = GetComponent<Friend>().friendinfo = new FriendInfo();
+            info.sprites = sprites;
+            foreach(var sprite in sprites)
+            {
+                info.colors.Add(sprite.color);
+            }
+        }
     }
 
     public void GiveSpriteRandomColor(SpriteRenderer sprite)

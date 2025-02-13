@@ -1498,6 +1498,7 @@ MonoBehaviour:
   - {fileID: 902815465}
   Dissapearing: 0
   HasRandomAppearance: 0
+  ObliviateSoundCalled: 0
 --- !u!4 &420873121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5946612568950703141, guid: 61582dde41b569e4d800cfea2101ad48, type: 3}
@@ -6714,7 +6715,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -6740,8 +6741,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926321481}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.037915967, y: -0.70599043, z: 0.037905294, w: 0.7061892}
-  m_LocalPosition: {x: 3.8949995, y: 1.4194616, z: -22.501097}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 9.71, y: 2.7426, z: 9.7699995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
